@@ -1,16 +1,34 @@
 const express = require('express')
 //const path = require('path')
 const app = express()
-//const { products } = require('./data')
-const logger = require('./logger')
-const authorize = require('./authorize')
+const { people } = require('./data')
+//const logger = require('./logger')
+//const authorize = require('./authorize')
 
 const port = 3000
 
-app.use([authorize, logger])
+app.use(express.static('./methods-public'))
 
+/*
 app.get('/', (req, res) => {
   res.send('home')
+})
+
+*/
+
+app.use(express.urlencoded({ extended: false}) )
+
+app.get('/api/people', ( req, res) => {
+  res.status(200).json({ success: true, data: people })
+})
+
+app.post('/login', (req, res) => {
+  console.log(req.body)
+  const { name } = req.body
+  if (name) {
+    return res.status(200).send(`Welcome ${name}`)
+  }
+  res.status(401).send('not auth')
 })
 
 app.get('/about', (req, res) => {
