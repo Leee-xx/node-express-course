@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "726b2516-cdeb-404e-ba5f-5ae624bdabf6",
+		"name": "node products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14945429"
+	},
+	"item": [
+		{
+			"name": "get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hosturl}}/api/v1/products/",
+					"host": [
+						"{{hosturl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all products (testing)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hosturl}}/api/v1/products/static",
+					"host": [
+						"{{hosturl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"static"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
