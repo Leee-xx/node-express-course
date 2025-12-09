@@ -17,17 +17,19 @@ const getAllProducts = async (req, res) => {
     }
   }
 
-  const products = await Product.find(queryObject)
+  const products = await product.find(queryobject)
   res.status(200).json({ products, count: products.length })
 }
 
 const getAllProductsStatic = async (req, res) => {
   const search = 'ab'
   const products = await Product.find({
+    /*
     name: {
       $regex: search,
       $options: 'i'
     }
+    */
   })
   res.status(200).json({ products, count: products.length })
   //res.status(200).json({msg: 'products testing static' })
