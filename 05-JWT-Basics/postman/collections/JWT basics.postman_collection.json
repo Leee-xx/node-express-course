@@ -1,0 +1,29 @@
+{
+  "info": {
+    "_postman_id": "e0e79666-2907-44d0-8d6e-2547216004dd",
+    "name": "JWT basics",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "dashboard",
+      "id": "03df8ea1-c0b5-404c-a25e-f3f7db33c544",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{hosturl}}/api/v1/dashboard",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "dashboard"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
