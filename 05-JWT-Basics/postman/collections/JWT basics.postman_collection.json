@@ -24,6 +24,35 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "login",
+      "id": "9481afc5-5969-4a45-9c6a-2194a424c70a",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"john\",\n    \"password\": \"secret\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hosturl}}/api/v1/login",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "login"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

@@ -1,5 +1,16 @@
+const CustomAPIError = require('../errors/custom-error')
+
 const login = async (req, res) => {
-  res.send('placeholder')
+  const { username, password } = req.body
+
+  if (!username || !password) {
+    throw new CustomAPIError('Please provide username and password', 400)
+  }
+
+  // mongo
+
+  console.log(username, password)
+  res.send('login placeholder')
 }
 
 const dashboard = async (req, res) => {
