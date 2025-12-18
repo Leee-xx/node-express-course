@@ -10,7 +10,19 @@
       "id": "03df8ea1-c0b5-404c-a25e-f3f7db33c544",
       "request": {
         "method": "GET",
-        "header": [],
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsInVzZXJuYW1lIjoiam9obiIsImlhdCI6MTc2NjAwMTQ5MywiZXhwIjoxNzY4NTkzNDkzfQ.o27jWlcHgG3IYdFgEEEzx85NO-glBag6HiK9HZr30PA",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}",
+            "type": "text"
+          }
+        ],
         "url": {
           "raw": "{{hosturl}}/api/v1/dashboard",
           "host": [
@@ -27,13 +39,40 @@
     },
     {
       "name": "login",
-      "id": "9481afc5-5969-4a45-9c6a-2194a424c70a",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "17b7331c-85ee-429b-9b7d-fc41dd7f1b38",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "53419bea-0e7d-4ebb-b3a5-9a46cc9ace62",
+            "exec": [
+              "const response = pm.response.json()",
+              "pm.globals.set('bearer_token', response.token)"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "6a398aa0-9218-483a-89ba-a77fec7e6422",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"username\": \"john\",\n    \"password\": \"secret\"\n}",
+          "raw": "{\n    \"username\": \"peter\",\n    \"password\": \"secret\"\n}",
           "options": {
             "raw": {
               "language": "json"
