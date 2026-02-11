@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "2fdec6aa-3cd4-40a8-ac77-5cf665c75194",
+    "name": "06 Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "register user",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "caf9de90-e199-49c5-ab80-9f1bbcf72124",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "5433dbb4-2525-4462-84f0-e4f374aa8eab",
+            "exec": [
+              "const jsonData = pm.response.json()",
+              "pm.collectionVariables.set(\"accessToken\", jsonData.token)"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "3257568a-b55a-4621-8673-c428f84b9b98",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"peter\",\n    \"email\": \"peter@gmail.com\",\n    \"password\": \"secret\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hosturl}}/api/v1/auth/register",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login user",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "50dce7c2-747b-4205-8464-abd823a6531d",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "3fad7f5f-c301-459c-afb3-401e947162ac",
+            "exec": [
+              "const jsonData = pm.response.json()",
+              "pm.collectionVariables.set(\"accessToken\", jsonData.token)"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "id": "4e2c5fe1-75d8-4eaf-9141-7d2ccbb0bfba",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"john@gmail.com\",\n    \"password\": \"secret\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hosturl}}/api/v1/auth/login",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create job",
+      "id": "794a9217-d282-4caa-89d8-cd8886ceacf1",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"company\": \"starfleet\",\n    \"position\": \"engineer\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hosturl}}/api/v1/jobs",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "jobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get jobs",
+      "id": "53442565-8f10-4c33-a01e-f4b42abbeab7",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{hosturl}}/api/v1/jobs",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "jobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get job",
+      "id": "d25f8d38-a300-4f56-9392-1d3d82f04194",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{hosturl}}/api/v1/jobs/6977f3c7ce89311716eeaf9c",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "jobs",
+            "6977f3c7ce89311716eeaf9c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update job",
+      "id": "70828aa6-fdf9-42c5-9d49-b06e830f0f43",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"company\": \"united federation of planets\",\n    \"position\": \"ambassador\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{hosturl}}/api/v1/jobs/6977f3c7ce89311716eeaf9c",
+          "host": [
+            "{{hosturl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "jobs",
+            "6977f3c7ce89311716eeaf9c"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{accessToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "id": "11c7b034-508c-4509-a328-b7d0137cfa4f",
+      "key": "accessToken",
+      "value": ""
+    }
+  ]
+}
